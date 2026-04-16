@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Twitter, Phone, Mail, MapPin, Star } from 'lucide-react';
+import { Instagram, Facebook, Twitter, Phone, Mail, MapPin, Star, Leaf } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Footer() {
@@ -25,9 +25,9 @@ export default function Footer() {
           <div className="space-y-8">
             <Link to="/" className="flex items-center gap-2">
               <img 
-                src="https://capeturf.co.za/cdn/shop/files/Green_Simple_Power_Logo-removebg-preview_2_f528f132-6dd5-4178-96e0-432544ef3a58.png?v=1745180028&width=200" 
+                src="https://lh3.googleusercontent.com/d/1HhyHEWjAQaAFqi6CHvXWqPLG-gEsn_pW" 
                 alt="Cape Turf Logo" 
-                className="h-16 w-auto object-contain brightness-0 invert"
+                className="h-32 w-auto object-contain"
                 referrerPolicy="no-referrer"
               />
             </Link>

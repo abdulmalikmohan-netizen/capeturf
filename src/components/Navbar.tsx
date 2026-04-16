@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Menu, X, Phone, Mail, Leaf } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
@@ -46,14 +46,12 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link to="/" className="group flex items-center gap-3">
-              <div className="relative">
-                <img 
-                  src="https://capeturf.co.za/cdn/shop/files/Green_Simple_Power_Logo-removebg-preview_2_f528f132-6dd5-4178-96e0-432544ef3a58.png?v=1745180028&width=200" 
-                  alt="Cape Turf Logo" 
-                  className={`h-12 w-auto object-contain transition-all duration-300 ${isScrolled || location.pathname !== '/' ? '' : 'brightness-0 invert'}`}
-                  referrerPolicy="no-referrer"
-                />
-              </div>
+              <img 
+                src="https://lh3.googleusercontent.com/d/1HhyHEWjAQaAFqi6CHvXWqPLG-gEsn_pW" 
+                alt="Cape Turf Logo" 
+                className="h-24 w-auto object-contain transition-all duration-300"
+                referrerPolicy="no-referrer"
+              />
             </Link>
           </div>
 

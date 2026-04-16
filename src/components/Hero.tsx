@@ -25,7 +25,7 @@ export default function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0 opacity-40">
         <img
-          src="https://capeturf.co.za/cdn/shop/files/IMG_7099.jpg?v=1753527734&width=2000"
+          src="https://lh3.googleusercontent.com/d/1FOTAbh8_Hysc1x6l0KHOR1LxQcxjbNq9"
           alt="Lush green lawn in Cape Town"
           className="w-full h-full object-cover scale-110 animate-slow-zoom"
           referrerPolicy="no-referrer"

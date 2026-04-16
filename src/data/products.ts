@@ -22,7 +22,7 @@ export const products: Product[] = [
     pileHeight: '13mm',
     price: 'R 319.99',
     images: [
-      'https://capeturf.co.za/cdn/shop/files/IMG_6486_e8edbdc0-b400-44ee-97da-4502a626a080.jpg?v=1745185992&width=800'
+      'https://lh3.googleusercontent.com/d/1Hw0wm6wqVRfAyyph0_7kapF_JhwzP51P'
     ],
     description: 'High-performance multisport surface, ideal for putting greens and sports areas. Durable and designed for heavy use.',
     onSale: false,
@@ -40,7 +40,7 @@ export const products: Product[] = [
     price: 'R 169.99',
     oldPrice: 'R 199.99',
     images: [
-      'https://capeturf.co.za/cdn/shop/files/IMG_6402.jpg?v=1745164073&width=800'
+      'https://lh3.googleusercontent.com/d/1uiJU-GJU6LiqwiVSDrxhxnzKrACHHB7C'
     ],
     description: 'A versatile and budget-friendly option for a neat, evergreen look. Perfect for low-traffic areas and balconies.',
     onSale: true,
@@ -58,7 +58,7 @@ export const products: Product[] = [
     price: 'R 199.99',
     oldPrice: 'R 209.99',
     images: [
-      'https://capeturf.co.za/cdn/shop/files/IMG_6414.jpg?v=1745184147&width=800'
+      'https://lh3.googleusercontent.com/d/1oWNQIIomq-8ecMKYo6AzwswshBjZaBS7'
     ],
     description: 'Features a natural autumn thatch for a realistic, multi-tone appearance. Soft underfoot and visually stunning.',
     onSale: true,
@@ -76,7 +76,7 @@ export const products: Product[] = [
     price: 'R 199.99',
     oldPrice: 'R 209.99',
     images: [
-      'https://capeturf.co.za/cdn/shop/files/IMG_6409.jpg?v=1745166667&width=800'
+      'https://lh3.googleusercontent.com/d/1a5k4_lLkI7tSPRs1XCZZwyZzUUYSTw4Z'
     ],
     description: 'Soft and durable, perfect for residential gardens and play areas. Provides a lush look with minimal maintenance.',
     onSale: true,
@@ -94,7 +94,7 @@ export const products: Product[] = [
     price: 'R 199.99',
     oldPrice: 'R 209.99',
     images: [
-      'https://capeturf.co.za/cdn/shop/files/IMG_6412_9b0228d4-6e03-43c8-9a6c-41d4e234cf8b.jpg?v=1745183905&width=800'
+      'https://lh3.googleusercontent.com/d/1jNbH6vuPFyRIvKqZa_iC8scIliRWJvTJ'
     ],
     description: 'Bright and vibrant green tones that mimic a fresh spring lawn. Ideal for creating a lively outdoor space.',
     onSale: true,
@@ -112,7 +112,7 @@ export const products: Product[] = [
     price: 'R 239.99',
     oldPrice: 'R 249.99',
     images: [
-      'https://capeturf.co.za/cdn/shop/files/IMG_6419.jpg?v=1745183436&width=800'
+      'https://lh3.googleusercontent.com/d/1cXZSeHHUYuXBEsGHYw7JnEHwPvvVCnTP'
     ],
     description: 'Premium density with a longer pile for a more luxurious feel. The autumn thatch adds depth and realism.',
     onSale: true,
@@ -129,7 +129,7 @@ export const products: Product[] = [
     pileHeight: '30mm',
     price: 'R 249.99',
     images: [
-      'https://capeturf.co.za/cdn/shop/files/IMG_6425.jpg?v=1745182428&width=800'
+      'https://lh3.googleusercontent.com/d/1kqgeiq0qlbBXR7wRHAbeL1hX3SupA6Qo'
     ],
     description: 'Superior comfort and resilience for high-traffic family gardens. Dense pile that stands up to play and pets.',
     onSale: false,
@@ -147,9 +147,7 @@ export const products: Product[] = [
     price: 'R 239.99',
     oldPrice: 'R 249.99',
     images: [
-      'https://capeturf.co.za/cdn/shop/files/IMG_6431.jpg?v=1745182861&width=800',
-      'https://capeturf.co.za/cdn/shop/files/IMG_6432.jpg?v=1745182861&width=800',
-      'https://capeturf.co.za/cdn/shop/files/IMG_6434.jpg?v=1745182861&width=800'
+      'https://lh3.googleusercontent.com/d/17K-J3abJ7mgL420Qms59Q3KW_H9vyLbM'
     ],
     description: 'Lush, dense, and vibrant—our top-selling 30mm option. Features firm blades that spring back well underfoot.',
     onSale: true,
@@ -166,7 +164,7 @@ export const products: Product[] = [
     pileHeight: '35mm',
     price: 'R 299.99',
     images: [
-      'https://capeturf.co.za/cdn/shop/files/IMG_6441.jpg?v=1745184378&width=800'
+      'https://lh3.googleusercontent.com/d/1RXUB73uU9nApKPuVjwoVSGu9rxUebyeH'
     ],
     description: 'The ultimate in luxury and realism with a deep, soft pile. Perfect for high-end residential projects.',
     onSale: false,
@@ -183,7 +181,7 @@ export const products: Product[] = [
     pileHeight: '40mm',
     price: 'R 319.99',
     images: [
-      'https://capeturf.co.za/cdn/shop/files/IMG_6472.jpg?v=1745184742&width=800'
+      'https://lh3.googleusercontent.com/d/1FAieIRxHQ2oNhahhXvLWHly7wVeBuPN3'
     ],
     description: 'Our thickest and most premium turf for a truly elite landscape. Unmatched density and comfort.',
     onSale: false,

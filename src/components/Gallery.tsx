@@ -1,31 +1,33 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { Camera, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Camera, ChevronLeft, ChevronRight, Info } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import BeforeAfterSlider from './BeforeAfterSlider';
 
 const galleryItems = [
   {
-    title: 'Premium Residential Installation',
-    image: 'https://capeturf.co.za/cdn/shop/files/watermarkPhoto-12_1.jpg?v=1746629690',
+    title: 'Residential Backyard Transformation',
+    before: 'https://lh3.googleusercontent.com/d/1u0WXoxf0q4kxzu_We71jrtloutKTuyr9',
+    after: 'https://lh3.googleusercontent.com/d/1GCfKIhmsdX9wZWduL7lYeBdFuChJDEHN',
   },
   {
-    title: 'Modern Home Courtyard',
-    image: 'https://capeturf.co.za/cdn/shop/files/IMG_9273.jpg?v=1774277911',
+    title: 'Modern Courtyard Upgrade',
+    before: 'https://lh3.googleusercontent.com/d/1L5rwvNRz0Fesz6rCKnUwua_elhXZNWzY',
+    after: 'https://lh3.googleusercontent.com/d/1FOTAbh8_Hysc1x6l0KHOR1LxQcxjbNq9',
   },
   {
-    title: 'Backyard / Garden Installation',
-    image: 'https://capeturf.co.za/cdn/shop/files/IMG_5833.jpg?v=1753195480',
+    title: 'Play Area Renovation',
+    before: 'https://lh3.googleusercontent.com/d/1H3dShiltU407cO-vwJZD4P8tdQ6-1eD5',
+    after: 'https://lh3.googleusercontent.com/d/1OaYFjtOtYdfjpYCVvih_1WEpT6sPXrye',
   },
   {
-    title: 'Professional Sports Surface',
-    image: 'https://capeturf.co.za/cdn/shop/files/IMG_6486_e8edbdc0-b400-44ee-97da-4502a626a080.jpg?v=1745185992',
+    title: 'Luxury Estate Lawn',
+    before: 'https://lh3.googleusercontent.com/d/1RPfMyf3STD_ECdMK1Vz22192CeP2ICIh',
+    after: 'https://lh3.googleusercontent.com/d/1E_n9B4FJT3hYmHwTy6lbYKmgUbnccV0E',
   },
   {
-    title: 'Primary School Play Park',
-    image: 'https://capeturf.co.za/cdn/shop/files/IMG_7132.jpg?v=1753527680',
-  },
-  {
-    title: 'Lush Family Garden',
-    image: 'https://capeturf.co.za/cdn/shop/files/IMG_9345.jpg?v=1774277897',
+    title: 'Family Entertainment Area',
+    before: 'https://lh3.googleusercontent.com/d/1BBhdKDTTtbRHpOASkm8lvIhjpBCb4qLU',
+    after: 'https://lh3.googleusercontent.com/d/1pYmLRYkvPEU7xmJ1p9PHMDeSWME1Pxp8',
   },
 ];
 
@@ -50,24 +52,10 @@ export default function Gallery() {
     })
   };
 
-  const swipeConfidenceThreshold = 10000;
-  const swipePower = (offset: number, velocity: number) => {
-    return Math.abs(offset) * velocity;
-  };
-
   const paginate = (newDirection: number) => {
     setDirection(newDirection);
     setCurrentIndex((prevIndex) => (prevIndex + newDirection + galleryItems.length) % galleryItems.length);
   };
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      paginate(1);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const constraintsRef = useRef<HTMLDivElement>(null);
 
   return (
     <section id="gallery" className="py-32 bg-white overflow-hidden">
@@ -75,12 +63,16 @@ export default function Gallery() {
         <div className="text-center mb-20">
           <span className="text-primary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Our Portfolio</span>
           <h2 className="text-5xl md:text-6xl font-display font-bold text-ink">
-            Recent <span className="serif-italic font-light text-primary">Installations</span>
+            Before & <span className="serif-italic font-light text-primary">After</span>
           </h2>
+          <p className="mt-6 text-gray-500 max-w-2xl mx-auto flex items-center justify-center gap-2">
+            <Info size={18} className="text-primary" />
+            Drag the slider to see the transformation
+          </p>
         </div>
 
-        <div className="relative h-[400px] md:h-[600px] w-full rounded-[3rem] overflow-hidden shadow-2xl group bg-secondary" ref={constraintsRef}>
-          <AnimatePresence initial={false} custom={direction}>
+        <div className="relative h-[315px] md:h-[455px] w-full lg:w-[70%] mx-auto rounded-[3rem] overflow-hidden shadow-2xl group bg-secondary">
+          <AnimatePresence initial={false} custom={direction} mode="wait">
             <motion.div
               key={currentIndex}
               custom={direction}
@@ -92,36 +84,21 @@ export default function Gallery() {
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 }
               }}
-              drag="x"
-              dragConstraints={constraintsRef}
-              dragElastic={1}
-              onDragEnd={(e, { offset, velocity }) => {
-                const swipe = swipePower(offset.x, velocity.x);
-
-                if (swipe < -swipeConfidenceThreshold) {
-                  paginate(1);
-                } else if (swipe > swipeConfidenceThreshold) {
-                  paginate(-1);
-                }
-              }}
               className="absolute inset-0 w-full h-full"
             >
-              <img
-                src={galleryItems[currentIndex].image}
-                alt={galleryItems[currentIndex].title}
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+              <BeforeAfterSlider 
+                beforeImage={galleryItems[currentIndex].before}
+                afterImage={galleryItems[currentIndex].after}
+                title={galleryItems[currentIndex].title}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent flex flex-col justify-end p-12 md:p-20">
+              
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent flex flex-col justify-end p-8 md:p-12 pointer-events-none">
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <h4 className="text-white font-display font-bold text-3xl md:text-5xl mb-4">{galleryItems[currentIndex].title}</h4>
-                  <p className="text-accent text-lg font-medium tracking-widest uppercase flex items-center gap-3">
-                    <Camera size={20} /> Cape Turf Excellence
-                  </p>
+                  <h4 className="text-white font-display font-bold text-2xl md:text-4xl mb-3">{galleryItems[currentIndex].title}</h4>
                 </motion.div>
               </div>
             </motion.div>
