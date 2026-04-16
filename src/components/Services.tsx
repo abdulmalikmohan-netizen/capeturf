@@ -90,7 +90,7 @@ export default function Services() {
               <p className="text-white/70">Our expert team handles the entire process, from ground preparation to the final seam, ensuring a flawless finish.</p>
             </div>
             <div className="flex-1 w-full h-64 md:h-full rounded-xl overflow-hidden block">
-              <img src="https://capeturf.co.za/cdn/shop/files/IMG_6486_e8edbdc0-b400-44ee-97da-4502a626a080.jpg?v=1745185992" alt="Professional Installation" className="w-full h-full object-cover transition-all duration-700" referrerPolicy="no-referrer" />
+              <img src="https://lh3.googleusercontent.com/d/1ujenkxNjZtRjBsbBG5x-CKTv5K8lUnL7" alt="Professional Installation" className="w-full h-full object-cover transition-all duration-700" referrerPolicy="no-referrer" />
             </div>
           </motion.div>
 
