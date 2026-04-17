@@ -71,7 +71,7 @@ export default function Gallery() {
           </p>
         </div>
 
-        <div className="relative h-[315px] md:h-[455px] w-full lg:w-[70%] mx-auto rounded-[3rem] overflow-hidden shadow-2xl group bg-secondary">
+        <div className="relative h-[380px] md:h-[550px] w-full lg:w-[85%] mx-auto rounded-[3rem] overflow-hidden shadow-2xl group bg-secondary">
           <AnimatePresence initial={false} custom={direction} mode="wait">
             <motion.div
               key={currentIndex}
@@ -98,7 +98,7 @@ export default function Gallery() {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <h4 className="text-white font-display font-bold text-2xl md:text-4xl mb-3">{galleryItems[currentIndex].title}</h4>
+                  <h4 className="text-white font-display font-bold text-3xl md:text-5xl mb-3">{galleryItems[currentIndex].title}</h4>
                 </motion.div>
               </div>
             </motion.div>

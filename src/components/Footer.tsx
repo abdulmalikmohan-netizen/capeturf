@@ -86,11 +86,11 @@ export default function Footer() {
             <ul className="space-y-6 text-white/70">
               <li className="flex items-start gap-4">
                 <Phone size={20} className="text-grass shrink-0" />
-                <span>062 454 9298</span>
+                <a href="tel:0624549298" className="hover:text-white transition-colors">062 454 9298</a>
               </li>
               <li className="flex items-start gap-4">
                 <Mail size={20} className="text-grass shrink-0" />
-                <span>capeturf24@gmail.com</span>
+                <a href="mailto:capeturf24@gmail.com" className="hover:text-white transition-colors">capeturf24@gmail.com</a>
               </li>
               <li className="flex items-start gap-4">
                 <MapPin size={20} className="text-grass shrink-0" />

@@ -16,25 +16,46 @@ export default function ResellerApplication() {
     about: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        fullName: '',
-        companyName: '',
-        email: '',
-        phone: '',
-        location: '',
-        businessType: '',
-        about: ''
+    setIsSubmitting(true);
+    
+    try {
+      await fetch("https://formsubmit.co/ajax/Capeturf24@gmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: "New Reseller Application",
+          ...formData
+        })
       });
-    }, 5000);
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          fullName: '',
+          companyName: '',
+          email: '',
+          phone: '',
+          location: '',
+          businessType: '',
+          about: ''
+        });
+      }, 5000);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -200,14 +221,16 @@ export default function ResellerApplication() {
 
             <button
               type="submit"
-              disabled={isSubmitted}
+              disabled={isSubmitting || isSubmitted}
               className={`w-full py-5 rounded-xl font-bold uppercase tracking-widest text-sm transition-all flex items-center justify-center gap-3 mt-8 ${
                 isSubmitted
                   ? 'bg-green-500 text-white'
                   : 'bg-primary text-white hover:bg-primary-light shadow-xl shadow-primary/20'
               }`}
             >
-              {isSubmitted ? (
+              {isSubmitting ? (
+                'Submitting...'
+              ) : isSubmitted ? (
                 <>
                   <Check size={20} /> Application Submitted
                 </>

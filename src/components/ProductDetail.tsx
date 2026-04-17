@@ -14,6 +14,8 @@ export default function ProductDetail() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -29,10 +31,34 @@ export default function ProductDetail() {
     );
   }
 
-  const handleEnquiry = (e: React.FormEvent) => {
+  const handleEnquiry = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
+    setIsSubmitting(true);
+    
+    try {
+      await fetch("https://formsubmit.co/ajax/Capeturf24@gmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `Product Enquiry: ${product.name}`,
+          Product: product.name,
+          Required_SQM: sqm,
+          Delivery_Type: deliveryType,
+          Address_or_Collection: deliveryType === 'delivery' ? address : 'Collection at 7 Honeyside West, Crawford'
+        })
+      });
+      setIsSubmitted(true);
+      setSqm('');
+      setAddress('');
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const nextImage = () => {
@@ -242,14 +268,16 @@ export default function ProductDetail() {
 
                 <button 
                   type="submit"
-                  disabled={isSubmitted}
+                  disabled={isSubmitting || isSubmitted}
                   className={`w-full py-5 rounded-xl font-bold uppercase tracking-widest text-sm transition-all flex items-center justify-center gap-3 ${
                     isSubmitted 
                       ? 'bg-green-500 text-white' 
                       : 'bg-primary text-white hover:bg-primary-light shadow-xl shadow-primary/20'
                   }`}
                 >
-                  {isSubmitted ? (
+                  {isSubmitting ? (
+                    'Sending...'
+                  ) : isSubmitted ? (
                     <>
                       <Check size={20} /> Enquiry Sent Successfully
                     </>

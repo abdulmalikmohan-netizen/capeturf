@@ -25,7 +25,7 @@ export default function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0 opacity-40">
         <img
-          src="https://lh3.googleusercontent.com/d/1FOTAbh8_Hysc1x6l0KHOR1LxQcxjbNq9"
+          src="https://lh3.googleusercontent.com/d/1unMXpWjEizbWCAlU7Wx6cTJxKfxR1NDS"
           alt="Lush green lawn in Cape Town"
           className="w-full h-full object-cover scale-110 animate-slow-zoom"
           referrerPolicy="no-referrer"
