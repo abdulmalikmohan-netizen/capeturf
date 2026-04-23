@@ -5,6 +5,7 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -48,6 +49,7 @@ export default function App() {
           <Footer />
           <Chatbot />
         </div>
+        <SpeedInsights />
       </Router>
     </HelmetProvider>
   );
