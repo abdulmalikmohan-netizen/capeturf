@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, Check, Truck, Shield, MapPin, Ruler, Send, Package, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Check, Truck, Shield, MapPin, Ruler, Send, Package, ChevronLeft, ChevronRight, Mail } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { products } from '../data/products';
 import React, { useState, useEffect } from 'react';
@@ -10,6 +10,7 @@ export default function ProductDetail() {
   const product = products.find(p => p.id === id);
   const [sqm, setSqm] = useState('');
   const [address, setAddress] = useState('');
+  const [email, setEmail] = useState('');
   const [deliveryType, setDeliveryType] = useState<'delivery' | 'collection'>('delivery');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -45,6 +46,7 @@ export default function ProductDetail() {
         body: JSON.stringify({
           _subject: `Product Enquiry: ${product.name}`,
           Product: product.name,
+          Email: email,
           Required_SQM: sqm,
           Delivery_Type: deliveryType,
           Address_or_Collection: deliveryType === 'delivery' ? address : 'Collection at 7 Honeyside West, Crawford'
@@ -53,6 +55,7 @@ export default function ProductDetail() {
       setIsSubmitted(true);
       setSqm('');
       setAddress('');
+      setEmail('');
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error) {
       console.error(error);
@@ -218,6 +221,23 @@ export default function ProductDetail() {
               </div>
 
               <form onSubmit={handleEnquiry} className="space-y-4">
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">
+                    Email Address
+                  </label>
+                  <div className="relative">
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                    <input 
+                      type="email" 
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="your@email.com"
+                      className="w-full pl-12 pr-4 py-4 rounded-xl bg-secondary border-none focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                    />
+                  </div>
+                </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">
