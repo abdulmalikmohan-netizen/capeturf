@@ -40,14 +40,6 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="h-[1px] w-12 bg-accent"></div>
-              <span className="text-accent font-medium tracking-[0.2em] uppercase text-xs">
-                Est. 2024 • Cape Town
-              </span>
-              <div className="h-[1px] w-12 bg-accent"></div>
-            </div>
-            
             <h1 className="text-6xl md:text-8xl lg:text-[120px] font-display font-bold text-white leading-none mb-8 tracking-tighter uppercase">
               CAPE <span className="text-accent">TURF</span>
             </h1>
